@@ -13,8 +13,11 @@ class SearchBar extends Component {
     renderInput(field) {
         return <input type="text" placeholder="Search DailySmarty" {...field.input} />
     }
+
     render() {
+
         const { handleSubmit } = this.props;
+
         return (
             <form className="search-bar" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
                 <Field name="query" component={this.renderInput}/>
@@ -22,6 +25,7 @@ class SearchBar extends Component {
         )
     }
 }
+
 SearchBar = reduxForm({
     form: 'searchBar'
 })(SearchBar);
